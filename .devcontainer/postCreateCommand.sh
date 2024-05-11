@@ -43,3 +43,5 @@ ddev composer install
 # Import example db, you could also run ddev craft/install ... here with all params
 ddev import-db --file=dump.sql.gz
 ddev exec 'cp rivage-Fa9b57hffnM-unsplash.jpg web/uploads/rivage-Fa9b57hffnM-unsplash.jpg'
+
+ddev craft setup/keys
