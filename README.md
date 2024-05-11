@@ -2,12 +2,13 @@
 
 This is a demo project for my first steps with [Sprig](https://putyourlightson.com/plugins/sprig), a htmx-powered plugin for Craft CMS.
 
-Status: 🚧 work in progress 🚧 |
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mandrasch/craftcms-sprig-green-coding-jobs-demo)
 
 ![Screenshot of search with checkbox filters](screenshot.png)
 
 This demo is based on [Sprigboard](https://putyourlightson.com/sprig/videos#sprigboard) and [craftquest.io Reactive Searchable, Filterable Table with Sprig](https://craftquest.io/courses/reactive-searchable-filterable-table-with-sprig) tutorials. Other plugins used (optional): CKEditor, Blitz ($), Imager-X ($).
+
+Status: 🚧 work in progress 🚧 |
 
 <hr>
 
