@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: simpleWysiwygContent
+instructions: null
+name: 'Simple WYSIWYG Content'
+searchable: false
+settings:
+  availableTransforms: ''
+  availableVolumes: ''
+  ckeConfig: ff3cbecf-0f4e-4aff-a4f8-93bd8ac46501 # Simple
+  createButtonLabel: null
+  defaultTransform: null
+  enableSourceEditingForNonAdmins: false
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: false
+  wordLimit: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\ckeditor\Field

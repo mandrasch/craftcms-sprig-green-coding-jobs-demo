@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - 671d7f33-b1cc-47a2-b318-351f6abed131 # Job
+handle: jobs
+maxAuthors: 1
+name: Jobs
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  b342a358-6ba6-41a2-b520-3bb922b51bde: # Testsite
+    enabledByDefault: true
+    hasUrls: true
+    template: jobs/_entry
+    uriFormat: 'job/{slug}'
+type: channel

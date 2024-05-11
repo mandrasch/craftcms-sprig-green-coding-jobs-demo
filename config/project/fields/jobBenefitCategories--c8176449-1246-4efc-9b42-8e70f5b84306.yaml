@@ -1,0 +1,22 @@
+columnSuffix: null
+handle: jobBenefitCategories
+instructions: null
+name: 'Job Benefit Categories'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSiteMenu: false
+  source: 'group:0e530a56-1ab2-4445-9fb2-c10cb2de5d23' # Job Benefit Categories
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

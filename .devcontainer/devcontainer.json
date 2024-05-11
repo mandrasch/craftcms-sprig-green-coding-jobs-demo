@@ -1,0 +1,9 @@
+{
+  // https://hub.docker.com/_/microsoft-devcontainers-universal
+  // this will also install docker-in-docker
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/ddev/ddev/install-ddev:latest": {}
+  },
+  "postCreateCommand": "chmod +x ./.devcontainer/postCreateCommand.sh && ./.devcontainer/postCreateCommand.sh"
+}

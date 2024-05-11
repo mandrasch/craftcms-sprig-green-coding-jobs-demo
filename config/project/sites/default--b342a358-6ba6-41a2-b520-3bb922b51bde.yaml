@@ -1,0 +1,9 @@
+baseUrl: $DDEV_PRIMARY_URL
+enabled: true
+handle: default
+hasUrls: true
+language: en
+name: Testsite
+primary: true
+siteGroup: 7c2faeb0-e852-4965-8043-25af99e324c1 # Green Coding Jobs
+sortOrder: 1

@@ -1,0 +1,21 @@
+{% extends '_layout' %}
+
+{% set title = 'Job Search' %}
+
+{% block content %}
+
+	<h1>Green Coding Jobs 🌱</h1>
+	<p>
+		This is a demo project for my first steps with
+		<a href="https://putyourlightson.com/plugins/sprig" target="_blank">Sprig</a>, a htmx-powered plugin for Craft CMS.
+	</p>
+	<p style="font-style:italic;font-size:0.9rem;">If you are a frequent user of Sprig, please consider sponsoring
+		<a href="https://bencroker.com/">Ben Croker</a>
+		for his amazing work on Sprig - which he provides as Open Source for the whole Craft CMS Community! You can also purchase
+		<a href="https://putyourlightson.com/sprig/training">Sprig training videos</a>
+		to support the development.</p>
+
+	{{
+        sprig('_sprig/jobSearch')
+    }}
+{% endblock %}

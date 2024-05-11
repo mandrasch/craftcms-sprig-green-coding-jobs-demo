@@ -1,0 +1,125 @@
+{# Set default values #}
+{% set searchTerm = searchTerm ?? '' %}
+{% set
+selectedBenefitCategories = selectedBenefitCategories?? [] %}
+{% set
+selectedProgrammingLanguages = selectedProgrammingLanguages ?? [] %}
+{% if reset
+is defined %}
+	{% set searchTerm = '' %}
+	{% set selectedBenefitCategories = [] %}
+	{% set selectedProgrammingLanguages = [] %}
+{% endif %}
+{# TODO: Add or / more
+complicated cases?} {# TODO: Add reset button #}
+
+
+<div class="job-search">
+
+	<div class="job-filters">
+
+		{# TODO: Caching possible here? #}
+		{# Get all possible values from benefit categories #}
+		{% set benefitCategoryOptions =
+craft.categories.group('jobBenefitCategories').all()%}
+		{% set
+programmingLanguagesOptions =
+craft.tags().group('jobProgrammingLanguages').all() %}
+
+			<div class="job-filters__filter-section benefit-categories"> <h2>Benefit Categories (Category)</h2>
+			<div class="job-filters__filter-section__options">
+				{% for benefitCategoryOption in benefitCategoryOptions %}
+					<div>
+						<input sprig type="checkbox" id="benefit-categories-{{ benefitCategoryOption.id }}" name="selectedBenefitCategories[]" value="{{ benefitCategoryOption.id }}" {{benefitCategoryOption.id in selectedBenefitCategories ? 'checked' }}/>
+						<label for="benefit-categories-{{ benefitCategoryOption.id }}">
+							{{ benefitCategoryOption.title }}
+						</label>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		{# TODO: Aria live section - a11y #}
+		{# TODO: Tag Selection with loading data
+																																																											async instead of showing all? #}
+		<div class="job-filters__filter-section programming-languages">
+			<h2>Programming Languages (Tags)</h2>
+			<div class="job-filters__filter-section__options">
+				{% for programmingLanguageOption in programmingLanguagesOptions %}
+					<div>
+						<input sprig type="checkbox" id="{{'programming-languages-'~ programmingLanguageOption.id }}" name="selectedProgrammingLanguages[]" value="{{ programmingLanguageOption.id }}" {{programmingLanguageOption.id in selectedProgrammingLanguages ? 'checked' }}/>
+						<label for="programming-languages-{{ programmingLanguageOption.id }}">
+							{{ programmingLanguageOption.title }}
+						</label>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="job-filters__filter-section search">
+			<h2>Search term (WIP)</h2>
+
+			<input sprig type="text" name="searchTerm" placeholder="Search term" aria-label="Search term" value="{{ searchTerm }}"/>
+
+		</div>
+
+		<!-- <h2>Price filtering</h2>
+																																																											<h2>Dropdown Filtering</h2> -->
+
+
+	</div>
+
+
+	{# Query Building #}
+	{% set jobQuery = craft.entries.section('jobs').eagerly()
+%}
+	{# TODO: do we need to sanitize this? #}
+	{% if searchTerm != '' %}
+		{% do
+jobQuery.search(searchTerm) %}
+	{% endif %}
+	{% if selectedBenefitCategories is
+not empty %}
+		{# element ids as params are just fine for andRelatedTo() #}
+		{% do
+jobQuery.andRelatedTo(selectedBenefitCategories) %}
+	{% endif %}
+	{% if
+selectedProgrammingLanguages is not empty %}
+		{% do
+jobQuery.andRelatedTo(selectedProgrammingLanguages) %}
+	{% endif %}
+	{# TODO: Add
+									pagination #}
+	{% set jobs = jobQuery.all() %}
+
+	<!-- TODO: add aria-live -->
+	<p>Results:</p>
+
+	<div class="job-results">
+		{% for job in jobs %}
+			<a href="{{ job.url }}" class="job-results__card">
+				{% set jobImage = job.image.one() ??? null %}
+				{% if jobImage %}
+					{% set transforms = craft.imagerx.transformImage(jobImage, 'listThumbnail') %}
+					{# https://imager-x.spacecat.ninja/templating.html#twig-filters #}
+					<img src="{{ craft.imagerx.placeholder({ width: 16, height: 9 }) }}" sizes="auto" srcset="{{ transforms | srcset }}">
+				{% endif %}
+				<div class="job-results__card__content">
+					<h3>{{ job.title }}</h3>
+					{{ job.subline ??? "" }}
+				</div>
+
+			</a>
+		{% endfor %}
+	</div>
+
+</div>
+
+
+<details style="margin-top:150px;">
+	<summary>Debugging</summary>
+	<p>Current query:</p>
+	<pre>{{ jobQuery.getRawSql() }}</pre
+  >
+</details>

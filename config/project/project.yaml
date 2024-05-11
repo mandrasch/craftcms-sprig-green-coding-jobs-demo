@@ -1,0 +1,69 @@
+dateModified: 1715434631
+email:
+  fromEmail: admin@example.com
+  fromName: 'Green Coding Jobs'
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  uploads:
+    hasUrls: true
+    name: Uploads
+    settings:
+      path: '@webroot/uploads'
+    type: craft\fs\Local
+    url: '@web/uploads'
+meta:
+  __names__:
+    0e530a56-1ab2-4445-9fb2-c10cb2de5d23: 'Job Benefit Categories' # Job Benefit Categories
+    7c2faeb0-e852-4965-8043-25af99e324c1: 'Green Coding Jobs' # Green Coding Jobs
+    7fc2cb89-cf90-4bbd-aa1f-80bad9629b3a: Uploads # Uploads
+    9b0e5a91-7470-4931-8137-bf361cd4b2e2: Image # Image
+    37e6610b-1e23-42b3-8c84-853c2796c120: 'Job Programming Languages' # Job Programming Languages
+    65f42813-b1a9-4f17-bc3a-2d329422c5e4: 'Simple Multi-Line Text Field' # Simple Multi-Line Text Field
+    482b9c56-bed4-4004-9cf2-085a3eca6f49: Jobs # Jobs
+    671d7f33-b1cc-47a2-b318-351f6abed131: Job # Job
+    a891b39d-03a3-45e3-b276-17186acb4746: 'Simple One-Line Text Field' # Simple One-Line Text Field
+    b342a358-6ba6-41a2-b520-3bb922b51bde: Testsite # Testsite
+    c8176449-1246-4efc-9b42-8e70f5b84306: 'Job Benefit Categories' # Job Benefit Categories
+    f9d16bf2-5cd7-49fc-89d5-6f3a67c0e75b: 'Job Programming Languages' # Job Programming Languages
+    fa292818-e2be-4621-a3fe-fa84e94dffd3: 'Simple WYSIWYG Content' # Simple WYSIWYG Content
+    ff3cbecf-0f4e-4aff-a4f8-93bd8ac46501: Simple # Simple
+plugins:
+  blitz:
+    edition: standard
+    enabled: true
+    licenseKey: FIQ66X673D55Z5TBP64667MM
+    schemaVersion: 5.0.0.4
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
+  empty-coalesce:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  imager-x:
+    edition: lite
+    enabled: true
+    licenseKey: TNDE5Q46BXYMPF2K1WVY2OW6
+    schemaVersion: 4.0.0
+  imager-x-power-pack:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  sprig:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+system:
+  edition: solo
+  live: true
+  name: 'Green Coding Jobs'
+  schemaVersion: 5.0.0.20
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true

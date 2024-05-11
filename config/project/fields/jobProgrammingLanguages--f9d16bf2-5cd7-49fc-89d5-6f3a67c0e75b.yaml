@@ -1,0 +1,22 @@
+columnSuffix: null
+handle: jobProgrammingLanguages
+instructions: null
+name: 'Job Programming Languages'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSiteMenu: false
+  source: 'taggroup:37e6610b-1e23-42b3-8c84-853c2796c120' # Job Programming Languages
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Tags
