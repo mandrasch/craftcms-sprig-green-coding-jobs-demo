@@ -1,8 +1,8 @@
 # Craft CMS v5 Green Coding Jobs Demo
 
-This is a demo project of my first steps with [Sprig](https://putyourlightson.com/plugins/sprig), a htmx-powered plugin for Craft CMS.
-
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mandrasch/craftcms-sprig-green-coding-jobs-demo)
+
+This is a demo project of my first steps with [Sprig](https://putyourlightson.com/plugins/sprig), a htmx-powered plugin for Craft CMS.
 
 ![Screenshot of search with checkbox filters](screenshot.png)
 
