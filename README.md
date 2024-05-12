@@ -1,6 +1,6 @@
 # Craft CMS v5 Green Coding Jobs Demo
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mandrasch/craftcms-sprig-green-coding-jobs-demo)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/?autostart=true#DDEV_REPO=https%3A%2F%2Fgithub.com%2Fmandrasch%2Fcraftcms-sprig-green-coding-jobs-demo,DDEV_ARTIFACTS=https%3A%2F%2Fgithub.com%2Fddev%2Fd10simple-artifacts/https://github.com/ddev/ddev-gitpod-launcher/) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mandrasch/craftcms-sprig-green-coding-jobs-demo)
 
 This is a demo project of my first steps with [Sprig](https://putyourlightson.com/plugins/sprig), a htmx-powered plugin for Craft CMS.
 
@@ -8,7 +8,7 @@ This is a demo project of my first steps with [Sprig](https://putyourlightson.co
 
 This demo is based on [Sprigboard](https://putyourlightson.com/sprig/videos#sprigboard) and [craftquest.io Reactive Searchable, Filterable Table with Sprig](https://craftquest.io/courses/reactive-searchable-filterable-table-with-sprig) tutorials. Other plugins used (optional): CKEditor, Blitz ($), Imager-X ($).
 
-Status: 🚧 work in progress 🚧 |
+Status: 🚧 work in progress 🚧 | Codespaces is buggy currently.
 
 <hr>
 
@@ -21,6 +21,7 @@ If you are a frequent user of Sprig, please consider sponsoring [Ben Croker](htt
 First time setup after git clone:
 
 ```bash
+cd craftcms-sprig-green-coding-jobs-demo/
 ddev start
 ddev composer install
 
