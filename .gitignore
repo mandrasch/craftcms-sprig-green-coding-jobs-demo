@@ -5,3 +5,6 @@
 
 # do not track for demo
 /config/license.key
+
+# imager-x transforms
+/web/imager
