@@ -28,6 +28,9 @@ ddev composer install
 # Import example database dump
 ddev import-db --file=dump.sql.gz
 
+# setup cookie encryption key in .env
+ddev craft setup/keys
+
 # Copy example image
 ddev exec 'cp rivage-Fa9b57hffnM-unsplash.jpg web/uploads/rivage-Fa9b57hffnM-unsplash.jpg'
 
