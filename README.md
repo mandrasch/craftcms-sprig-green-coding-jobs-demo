@@ -94,6 +94,7 @@ ddev craft install/craft \
 ## TODOs
 
 - [ ] Add URL params!
+- [ ] Learn about Blitz Query String Caching - https://discord.com/channels/456442477667418113/575387375610626063/1241017277755953152
 - [ ] Add dropdown example (https://putyourlightson.com/sprig/videos#sprigboard)
 - [ ] Loading animation?
 - [ ] How could we cache frequent search queries?
