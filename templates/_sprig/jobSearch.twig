@@ -13,18 +13,60 @@
 {# Sets a default value if not defined by `s-val:*` on the clicked element #}
 {% set page = page ?? 1 %}
 
-{{dump(searchTerm)}}
 
-<div class="job-search">
+{# Query Building #}
+{% set jobQuery = craft.entries.section('jobs').eagerly() %}
 
-	<div class="job-filters">
+{# TODO: do we need to sanitize this? #}
+
+{% if searchTerm != '' %}
+	{% do jobQuery.search(searchTerm) %}
+{% endif %}
+{% if selectedBenefitCategories is not empty %}
+	{# element ids as params are just fine for andRelatedTo() #}
+	{% do jobQuery.andRelatedTo(selectedBenefitCategories) %}
+{% endif %}
+{% if selectedProgrammingLanguages is not empty %}
+	{% do jobQuery.andRelatedTo(selectedProgrammingLanguages) %}
+{% endif %}
+
+{# Paginates the entry query given the current page, https://putyourlightson.com/sprig/cookbook#pagination #}
+{% do jobQuery.limit(3) %}
+{% set pageInfo = sprig.paginate(jobQuery, page) %}
+
+{# Get results for current page #}
+{% set jobs = pageInfo.pageResults %}
+{% set jobs = jobQuery.all() %}
+
+{# TODO: how can we add array to it? |url_encode as well? #}
+{# selectedBenefitCategories: selectedBenefitCategories|url_encode, #}
+{# selectedProgrammingLanguages: selectedProgrammingLanguages|url_encode, #}
+
+{% set filters = {
+		      searchTerm: searchTerm,
+		      page: page
+		  } %}
+
+{# This will take care of URL params (automagically), on page load and after actions / page switch #}
+{% do sprig.pushUrl('?' ~ filters|url_encode) %}
+
+
+	<div class="job-search"> <div class="job-filters">
+
+		<div class="job-filters__filter-section search">
+			<h2>Search term</h2>
+
+			<input sprig type="text" name="searchTerm" placeholder="Search term, e.g. 'Svelte'" aria-label="Search term" value="{{ searchTerm }}"/>
+
+		</div>
 
 		{# TODO: Caching possible here? #}
 		{# Get all possible values from benefit categories #}
 		{% set benefitCategoryOptions = craft.categories.group('jobBenefitCategories').all()%}
 		{% set programmingLanguagesOptions = craft.tags().group('jobProgrammingLanguages').all() %}
 
-			<div class="job-filters__filter-section benefit-categories"> <h2>Benefit Categories (Category)</h2>
+		<div class="job-filters__filter-section benefit-categories">
+			<h2>Benefit Categories (Category)</h2>
 			<div class="job-filters__filter-section__options">
 				{% for benefitCategoryOption in benefitCategoryOptions %}
 					<div>
@@ -39,7 +81,7 @@
 
 		{# TODO: Aria live section - a11y #}
 		{# TODO: Tag Selection with loading data
-																																																																																																																																																																									async instead of showing all? #}
+																																																																																																																																																																																			async instead of showing all? #}
 		<div class="job-filters__filter-section programming-languages">
 			<h2>Programming Languages (Tags)</h2>
 			<div class="job-filters__filter-section__options">
@@ -54,59 +96,18 @@
 			</div>
 		</div>
 
-		<div class="job-filters__filter-section search">
-			<h2>Search term (WIP)</h2>
-
-			<input sprig type="text" name="searchTerm" placeholder="Search term" aria-label="Search term" value="{{ searchTerm }}"/>
-
-		</div>
 
 		<!-- <h2>Price filtering</h2>
-																																																																																																																																																																									<h2>Dropdown Filtering</h2> -->
+																																																																																																																																																																																			<h2>Dropdown Filtering</h2> -->
 	</div>
 
-	{# Query Building #}
-	{% set jobQuery = craft.entries.section('jobs').eagerly() %}
-
-	{# TODO: do we need to sanitize this? #}
-
-	{% if searchTerm != '' %}
-		{% do jobQuery.search(searchTerm) %}
-	{% endif %}
-	{% if selectedBenefitCategories is not empty %}
-		{# element ids as params are just fine for andRelatedTo() #}
-		{% do jobQuery.andRelatedTo(selectedBenefitCategories) %}
-	{% endif %}
-	{% if selectedProgrammingLanguages is not empty %}
-		{% do jobQuery.andRelatedTo(selectedProgrammingLanguages) %}
-	{% endif %}
-
-	{# Paginates the entry query given the current page, https://putyourlightson.com/sprig/cookbook#pagination #}
-	{% do jobQuery.limit(3) %}
-	{% set pageInfo = sprig.paginate(jobQuery, page) %}
-
-	{# Get results for current page #}
-	{% set jobs = pageInfo.pageResults %}
-	{% set jobs = jobQuery.all() %}
-
-	{# TODO: how can we add array to it? |url_encode as well? #}
-	{# selectedBenefitCategories: selectedBenefitCategories|url_encode, #}
-	{# selectedProgrammingLanguages: selectedProgrammingLanguages|url_encode, #}
-
-	{% set filters = {
-		      searchTerm: searchTerm,
-		      page: page
-		  } %}
-
-	{# This will take care of URL params (automagically), on page load and after actions / page switch #}
-	{% do sprig.pushUrl('?' ~ filters|url_encode) %}
-
 	<!-- TODO: add aria-live -->
-		<p>
-	Results:
+	<p>
+		Results:
 	</p>
 
-		<div class="job-results"> {% for job in jobs %}
+	<div class="job-results">
+		{% for job in jobs %}
 			<a href="{{ job.url }}" class="job-results__card">
 				{% set jobImage = job.image.one() ??? null %}
 				{% if jobImage %}
