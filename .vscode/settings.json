@@ -1,6 +1,6 @@
 {
   "intelephense.environment.phpVersion": "8.2",
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.associations": {
     "*.twig": "twig"

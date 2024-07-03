@@ -57,6 +57,9 @@
 			<h2>Search term</h2>
 
 			<input sprig type="text" name="searchTerm" placeholder="Search term, e.g. 'Svelte'" aria-label="Search term" value="{{ searchTerm }}"/>
+			{#{{dump(searchTerm)}}#}
+
+      <p style="font-size:0.9rem;">Examples:  <a href="#" sprig s-val:searchTerm="{{ "Svelte" }}" s-push-url="{{'?' ~ filters|merge({searchTerm: 'Svelte'})|url_encode }}">Svelte</a>, <a href="#" sprig s-val:searchTerm="{{ "PHP" }}" s-push-url="{{'?' ~ filters|merge({searchTerm: 'PHP'})|url_encode }}">PHP</a></p>
 
 		</div>
 
@@ -81,7 +84,7 @@
 
 		{# TODO: Aria live section - a11y #}
 		{# TODO: Tag Selection with loading data
-																																																																																																																																																																																			async instead of showing all? #}
+																																																																																																																																																																																																											async instead of showing all? #}
 		<div class="job-filters__filter-section programming-languages">
 			<h2>Programming Languages (Tags)</h2>
 			<div class="job-filters__filter-section__options">
@@ -98,7 +101,7 @@
 
 
 		<!-- <h2>Price filtering</h2>
-																																																																																																																																																																																			<h2>Dropdown Filtering</h2> -->
+																																																																																																																																																																																																											<h2>Dropdown Filtering</h2> -->
 	</div>
 
 	<!-- TODO: add aria-live -->
