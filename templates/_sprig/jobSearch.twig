@@ -39,7 +39,7 @@
 
 		{# TODO: Aria live section - a11y #}
 		{# TODO: Tag Selection with loading data
-																																																																																																																																																																					async instead of showing all? #}
+																																																																																																																																																																									async instead of showing all? #}
 		<div class="job-filters__filter-section programming-languages">
 			<h2>Programming Languages (Tags)</h2>
 			<div class="job-filters__filter-section__options">
@@ -62,7 +62,7 @@
 		</div>
 
 		<!-- <h2>Price filtering</h2>
-																																																																																																																																																																					<h2>Dropdown Filtering</h2> -->
+																																																																																																																																																																									<h2>Dropdown Filtering</h2> -->
 	</div>
 
 	{# Query Building #}
@@ -98,7 +98,7 @@
 		      page: page
 		  } %}
 
-	{# This will take care of URL params (automagically) #}
+	{# This will take care of URL params (automagically), on page load and after actions / page switch #}
 	{% do sprig.pushUrl('?' ~ filters|url_encode) %}
 
 	<!-- TODO: add aria-live -->
