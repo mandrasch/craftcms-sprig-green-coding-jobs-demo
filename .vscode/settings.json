@@ -10,5 +10,8 @@
   },
   "[twig]": {
     "editor.defaultFormatter": "mblode.twig-language-2"
+  },
+  "terminal.integrated.env.osx": {
+    "PATH": "${env:HOME}/Library/Application Support/Code/User/globalStorage/biati.ddev-manager/exposed-commands:${env:PATH}"
   }
 }
