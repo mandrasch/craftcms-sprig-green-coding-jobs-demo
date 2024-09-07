@@ -17,6 +17,10 @@ export DDEV_NONINTERACTIVE=true
 # start project
 ddev start -y
 
+# deps
+ddev composer install
+# ddev npm install
+
 # Import example database dump
 ddev import-db --file=dump.sql.gz
 
